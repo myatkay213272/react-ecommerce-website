@@ -1,10 +1,8 @@
+import { useContext } from 'react'
 import { TextContext } from '../App'
-import {useContext } from 'react'
 
 const ProductGallery = () => {
-
-     const {mainImage,setMainImage,thumbnailToShow,images} = useContext(TextContext)
-
+  const { mainImage, setMainImage, thumbnailsToShow, images } = useContext(TextContext)
 
   return (
     <div className="container my-4">
@@ -18,9 +16,9 @@ const ProductGallery = () => {
         />
       </div>
 
-      {/* Thumbnail Gallery */}
+      {/* array.slice(start,end) */}
       <div className="d-flex gap-2">
-        {images.slice(0, thumbnailToShow).map((img, idx) => (
+        {images.slice(0, thumbnailsToShow).map((img, idx) => (
           <img
             key={idx}
             src={img}
@@ -31,13 +29,13 @@ const ProductGallery = () => {
           />
         ))}
 
-        {/* "+more" box */}
-        {images.length > thumbnailToShow && (
+        
+        {images.length  && (
           <div
             className="d-flex align-items-center justify-content-center border rounded"
             style={{ width: '60px', height: '60px', backgroundColor: '#f5f5f5' }}
           >
-            +{images.length - thumbnailToShow} more
+            +{images.length} more
           </div>
         )}
       </div>

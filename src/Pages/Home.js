@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import shoe from "../assets/shoe4.jpg"
 import clothes from "../assets/clothes1.png"
 import ProductGallery from '../components/ProductGallery'
 
@@ -20,12 +19,7 @@ const Home = () => {
       </select>
 
       {selected === 'shoes' && (
-        <img
-          src={shoe}
-          alt="Shoes"
-          className="img-fluid"
-          style={{ maxWidth: '300px' }}
-        />
+        <ProductGallery/>
       )}
 
       {selected === 'clothes' && (
@@ -37,7 +31,6 @@ const Home = () => {
         />
       )}
 
-      <ProductGallery/>
     </main>
   )
 }
