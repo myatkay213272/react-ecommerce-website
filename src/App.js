@@ -20,7 +20,8 @@ const App = () => {
   const clothes = [clothes1,clothes2,clothes3]
   const [mainClothes,setMainClothes] = useState(clothes[0])
   const cartCount = 4
-  const [selectcart,setSelectCart] = useState('')
+  const [selectcolor,setSelectColor] = useState('')
+  const [selectsize,setSelectSize] = useState('')
 
   return (
     <TextContext.Provider 
@@ -36,8 +37,10 @@ const App = () => {
         mainClothes,
         setMainClothes,
         clothes,
-        selectcart,
-        setSelectCart
+        selectcolor,
+        setSelectColor,
+        selectsize,
+        setSelectSize
       }}>
       <Router>
         <Header />

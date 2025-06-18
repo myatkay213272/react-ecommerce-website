@@ -1,9 +1,15 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import reebok from "../assets/reebok.png"
 import { TextContext } from '../Context/TextContext'
+import { FaShoppingCart, FaTruck } from 'react-icons/fa';
 
 const ProductCart = () => {
-  const { selectcart, setSelectCart, images } = useContext(TextContext)
+  const { selectcolor, setSelectColor, selectsize, setSelectSize, images } = useContext(TextContext)
+  const [selectedSize, setSelectedSize] = useState(null) 
+
+  const handleSizeClick = (size) => {
+    setSelectedSize(size)
+  }
 
   return (
     <div className="container mt-4">
@@ -14,7 +20,6 @@ const ProductCart = () => {
         </div>
 
         <p className="text-muted small mb-1">Product Code: HRISqswdbh-8</p>
-
         <h2 className="fw-bold mb-2">Zig Kinetica 3 Shoes</h2>
 
         <div className="mb-2">
@@ -28,15 +33,15 @@ const ProductCart = () => {
         <select
           id="colorSelect"
           className="form-select mb-3"
-          value={selectcart}
-          onChange={(e) => setSelectCart(e.target.value)}
+          value={selectcolor}
+          onChange={(e) => setSelectColor(e.target.value)}
         >
           <option value="">Select Color</option>
           <option value="blue">Blue</option>
         </select>
 
-        {selectcart === 'blue' && (
-          <div className="d-flex gap-2 mt-2 flex-wrap">
+        {selectcolor === 'blue' && (
+          <div className="d-flex gap-2 flex-wrap">
             {images.map((img, i) => (
               <img
                 key={i}
@@ -48,6 +53,41 @@ const ProductCart = () => {
             ))}
           </div>
         )}
+
+        <label htmlFor="sizeSelect" className="form-label fw-medium mt-3">Choose a size:</label>
+        <select
+          id="sizeSelect"
+          className="form-select mb-3"
+          value={selectsize}
+          onChange={(e) => setSelectSize(e.target.value)}
+        >
+          <option value="">Select Size</option>
+          <option value="men">EUMEN</option>
+        </select>
+
+        {selectsize === "men" && (
+          <div className='d-flex gap-2 mt-2 flex-wrap'>
+            {["40.5", "41", "42", "43"].map((size) => (
+              <button
+                key={size}
+                className={`btn ${selectedSize === size ? "bg-black text-white" : "btn-outline-secondary"}`}
+                onClick={() => handleSizeClick(size)}
+              >
+                {size}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <button className="btn btn-dark mt-4">
+          <FaShoppingCart className="me-2" />
+          Add to cart
+        </button>
+
+        <p className="text-muted mt-2">
+          <FaTruck className="me-2" />
+          Free delivery on orders over $30.00
+        </p>
       </div>
     </div>
   )
