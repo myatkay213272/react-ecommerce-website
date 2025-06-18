@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TextContext } from '../App'
+import { TextContext } from '../Context/TextContext'
 import logo from "./logo192.png"
 import CardBadge from '../components/CardBadge'
 

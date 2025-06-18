@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react'
+import { useState } from 'react'
+import { TextContext } from './Context/TextContext'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './Pages/Home'
 import Navbar from './Pages/Navbar'
@@ -11,8 +12,6 @@ import clothes1 from "./assets/clothes1.png"
 import clothes2 from "./assets/clothes2.jpg"
 import clothes3 from "./assets/clothes3.jpg"
 
-export const TextContext = createContext()
-
 const App = () => {
   const [search, setSearch] = useState('')
   const [selected,setSelected] = useState('')
@@ -21,6 +20,7 @@ const App = () => {
   const clothes = [clothes1,clothes2,clothes3]
   const [mainClothes,setMainClothes] = useState(clothes[0])
   const cartCount = 4
+  const [selectcart,setSelectCart] = useState('')
 
   return (
     <TextContext.Provider 
@@ -35,7 +35,9 @@ const App = () => {
         images,
         mainClothes,
         setMainClothes,
-        clothes
+        clothes,
+        selectcart,
+        setSelectCart
       }}>
       <Router>
         <Header />

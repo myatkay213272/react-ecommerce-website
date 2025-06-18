@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { FaShoppingCart, FaHeart } from 'react-icons/fa'
-import { TextContext } from '../App'
+import { TextContext } from '../Context/TextContext'
 
 const CardBadge = () => {
   const { cartCount } = useContext(TextContext)
