@@ -22,6 +22,7 @@ const App = () => {
   const cartCount = 4
   const [selectcolor,setSelectColor] = useState('')
   const [selectsize,setSelectSize] = useState('')
+  const [selectnew,setSelectNew] = useState('')
 
   return (
     <TextContext.Provider 
@@ -40,7 +41,9 @@ const App = () => {
         selectcolor,
         setSelectColor,
         selectsize,
-        setSelectSize
+        setSelectSize,
+        selectnew,
+        setSelectNew
       }}>
       <Router>
         <Header />
