@@ -6,3 +6,4 @@ This is an e-commerce application built with React.
 
 ![E-commerce Preview](/ecommerce.png)
 ![E-commerce Preview](/ecommerce2.png)
+![E-commerce Preview](/ecommerce3.png)
