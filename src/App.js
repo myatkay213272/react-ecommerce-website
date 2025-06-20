@@ -19,7 +19,7 @@ const App = () => {
   const [mainImage,setMainImage] = useState(images[0])
   const clothes = [clothes1,clothes2,clothes3]
   const [mainClothes,setMainClothes] = useState(clothes[0])
-  const cartCount = 4
+  const [cartCount,setCartCount] = useState(0)
   const [selectcolor,setSelectColor] = useState('')
   const [selectsize,setSelectSize] = useState('')
   const [selectnew,setSelectNew] = useState('')
@@ -30,6 +30,7 @@ const App = () => {
         search, 
         setSearch, 
         cartCount ,
+        setCartCount,
         selected,
         setSelected,
         mainImage,

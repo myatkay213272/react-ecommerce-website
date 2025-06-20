@@ -4,31 +4,23 @@ import { TextContext } from '../Context/TextContext'
 import { FaShoppingCart, FaTruck } from 'react-icons/fa';
 
 const ProductCart = () => {
-  const { selectcolor, setSelectColor, selectsize, setSelectSize, images } = useContext(TextContext)
+  const { selectcolor,cartCount,setCartCount, setSelectColor, selectsize, setSelectSize, images } = useContext(TextContext)
   const [selectedSize, setSelectedSize] = useState(null)
 
   const handleSizeClick = (size) => {
     setSelectedSize(size)
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
 
-    if (selectcolor === "blue" && selectsize === "men" && selectedSize) {
-      console.log("Submitted:", {
-        color: selectcolor,
-        sizeCategory: selectsize,
-        shoeSize: selectedSize
-      })
-      alert("Product added to cart!")
-    } else {
-      alert("Please select color, size category, and size!")
-    }
+  const handleAddToCart = (e)=>{
+    e.preventDefault()
+    setCartCount(cartCount + 1)
+    console.log(cartCount)
   }
 
   return (
     <div className="container mt-4">
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="mb-4">
           <div className="d-flex align-items-center gap-3 mb-3">
             <img src={reebok} alt="Reebok Logo" width="50" className="img-fluid" />
@@ -96,7 +88,11 @@ const ProductCart = () => {
             </div>
           )}
 
-          <button type="submit" className="btn btn-dark mt-4">
+          <button 
+            type="submit" 
+            className="btn btn-dark mt-4"
+            onClick={handleAddToCart}
+          >
             <FaShoppingCart className="me-2" />
             Add to cart
           </button>
