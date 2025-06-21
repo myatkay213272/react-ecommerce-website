@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import { TextContext } from '../Context/TextContext'
 import ProductCart from './ProductCart'
 
-const ProductGallery = () => {
-  const { mainImage, setMainImage, images } = useContext(TextContext)
+const ProductGallery = ({shoes}) => {
+  const { mainImage, setMainImage} = useContext(TextContext)
 
   return (
     <div className="container my-4">
@@ -21,7 +21,7 @@ const ProductGallery = () => {
               />
 
               <div className="d-flex gap-2 justify-content-center flex-wrap">
-                {images.map((img, i) => (
+                {shoes.map((img, i) => (
                   <img
                     key={i}
                     src={img}
@@ -32,7 +32,7 @@ const ProductGallery = () => {
                   />
                 ))}
 
-                {images.length > 0 && (
+                {shoes.length > 0 && (
                   <div
                     className="d-flex align-items-center justify-content-center border rounded"
                     style={{
@@ -41,7 +41,7 @@ const ProductGallery = () => {
                       backgroundColor: '#f5f5f5',
                     }}
                   >
-                    +{images.length} more
+                    +{shoes.length} more
                   </div>
                 )}
               </div>

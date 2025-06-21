@@ -5,7 +5,13 @@ import ClothesGallery from './ClothesGallery'
 
 const Category = () => {
   const [selected, setSelected] = useState('')
-  const { images, clothes } = useContext(TextContext)
+  const { filteredProducts } = useContext(TextContext)
+
+  const shoes = filteredProducts.filter(p=>p.category === 'shoes')
+  const clothes = filteredProducts.filter(p=>p.category === 'clothes')
+
+  const shoeImage = shoes.length > 0 ? shoes[0].image : ''
+  const clothesImage = clothes.length > 0 ? clothes[0].image : ''
 
   return (
     <div className="container mt-4">
@@ -29,12 +35,18 @@ const Category = () => {
             <div className="card h-100">
               <div className="card-header text-center">Shoes</div>
               <div className="card-body d-flex justify-content-center">
-                <img
-                  src={images[0]}
-                  alt="shoe"
-                  className="img-fluid rounded"
-                  style={{ maxWidth: '300px', height: 'auto', objectFit: 'contain' }}
-                />
+                {
+                  shoeImage ? (
+                    <img 
+                      src={shoeImage}
+                      alt="shoe"
+                      className="img-fluid rounded"
+                      style={{maxWidth:'300px',height:'auto',objectFit : 'contain'}}
+                    />
+                  ) : (
+                    <p>No shoe images available.</p>
+                  )
+                }
               </div>
             </div>
           </div>
@@ -42,20 +54,26 @@ const Category = () => {
             <div className="card h-100">
               <div className="card-header text-center">Clothes</div>
               <div className="card-body d-flex justify-content-center">
-                <img
-                  src={clothes[0]}
-                  alt="clothes"
-                  className="img-fluid rounded"
-                  style={{ maxWidth: '300px', height: 'auto', objectFit: 'contain' }}
-                />
+                {
+                  clothesImage ? (
+                    <img
+                      src={clothesImage}
+                      alt="clothes"
+                      className="img-fluid rounded"
+                      style={{maxWidth : '300px',height : 'auto' ,objectFit : 'contain'}}
+                    />
+                  ):(
+                    <p>No clothes images available.</p>
+                  )
+                }
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {selected === 'shoes' && <ProductGallery />}
-      {selected === 'clothes' && <ClothesGallery />}
+      {selected === 'shoes' && <ProductGallery shoes={shoes} />}
+      {selected === 'clothes' && <ClothesGallery clothes={clothes}/>}
     </div>
   )
 }

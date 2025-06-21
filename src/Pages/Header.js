@@ -4,8 +4,9 @@ import logo from "./logo192.png"
 import CardBadge from '../components/CardBadge'
 
 const Header = () => {
-  const { search, setSearch } = useContext(TextContext)
 
+  const {search,setSearch} = useContext(TextContext)
+  
   return (
     <header className="d-flex justify-content-between align-items-center p-3 bg-light border-bottom">
       <img src={logo} alt="logo" width="50" />
@@ -19,7 +20,7 @@ const Header = () => {
       />
 
       <div className="ms-3">
-        <CardBadge />
+          <CardBadge/>
       </div>
     </header>
   )

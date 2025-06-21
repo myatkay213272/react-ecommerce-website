@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 import { TextContext } from '../Context/TextContext'
 
-const ClothesGallery = () => {
-  const { mainClothes, setMainClothes, clothes } = useContext(TextContext)
+const ClothesGallery = ({clothes}) => {
+  const { mainClothes, setMainClothes } = useContext(TextContext)
 
   return (
     <div className="col-md-6">

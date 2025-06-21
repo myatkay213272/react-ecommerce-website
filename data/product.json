@@ -1,0 +1,11 @@
+{
+  "product": [
+    { "id": 1, "name": "Reebok Shoes", "price": 50, "image": "/assets/shoe3.jpg", "category": "shoes" },
+    { "id": 2, "name": "Nike T-Shirt", "price": 25, "image": "/assets/clothes1.png", "category": "clothes" },
+    { "id": 3, "name": "Adidas Sneakers", "price": 100, "image": "/assets/shoe4.jpg", "category": "shoes" },
+    { "id": 4, "name": "Puma Hoodie", "price": 45, "image": "/assets/clothes2.jpg", "category": "clothes" },
+    { "id": 5, "name": "Kara Hoodie", "price": 45, "image": "/assets/clothes3.jpg", "category": "clothes" },
+    { "id": 6, "name": "Vans Old Skool", "price": 60, "image": "/assets/shoe5.webp", "category": "shoes" },
+    { "id": 7, "name": "Levi's Jeans", "price": 70, "image": "/assets/shoe6.jpg", "category": "shoes" }
+  ]
+}
