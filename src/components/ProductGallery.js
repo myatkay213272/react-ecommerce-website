@@ -51,7 +51,7 @@ const ProductGallery = ({shoes}) => {
 
         {/* Right: Product Cart */}
         <div className="col-md-6">
-          <ProductCart />
+          <ProductCart shoes={shoes}/>
         </div>
       </div>
     </div>

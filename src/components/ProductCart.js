@@ -3,8 +3,8 @@ import reebok from "../assets/reebok.png"
 import { TextContext } from '../Context/TextContext'
 import { FaShoppingCart, FaTruck } from 'react-icons/fa';
 
-const ProductCart = () => {
-  const { selectcolor,cartCount,setCartCount, setSelectColor, selectsize, setSelectSize, images } = useContext(TextContext)
+const ProductCart = ({shoes}) => {
+  const { selectcolor,cartCount,setCartCount, setSelectColor, selectsize, setSelectSize } = useContext(TextContext)
   const [selectedSize, setSelectedSize] = useState(null)
 
   const handleSizeClick = (size) => {
@@ -50,10 +50,10 @@ const ProductCart = () => {
 
           {selectcolor === 'blue' && (
             <div className="d-flex gap-2 flex-wrap mb-3">
-              {images.map((img, i) => (
+              {shoes.map((shoe, i) => (
                 <img
                   key={i}
-                  src={img}
+                  src={shoe}
                   alt={`blue-${i}`}
                   style={{ width: '30px', height: '20px' }}
                   className="border rounded"
